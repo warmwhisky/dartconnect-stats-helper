@@ -51,15 +51,18 @@ Check out the **Issues** and **Discussions** tabs to engage. Every idea and piec
 
 ---
 
-💻 But… You Use jQuery?! 😱
-Yes, we do, and we do so deliberately and unapologetically. 😘 While the world has moved on to React, Vue, Svelte, and other modern frameworks, we chose jQuery for practical and philosophical reasons:
+## 💻 But… You Use jQuery?! 😱  
 
-🌟 Simplicity & Familiarity – jQuery is lightweight, easy to use, and gets the job done with elegance.
-🌟 Speed of Development – We focus on functionality first without unnecessary complexity.
-🌟 Compatibility – It integrates smoothly with Dark Connect without adding unnecessary dependencies.
-🌟 Pure Efficiency – Our tool doesn’t need a full-blown reactive framework when jQuery can handle the job gracefully.
+Yes, we do, and we do so **deliberately and unapologetically.** 😘 While the world has moved on to React, Vue, Svelte, and other modern frameworks, we chose jQuery for **practical** and **philosophical** reasons:  
 
-We deeply understand the modern ecosystem, and trust us, we’ve explored the alternatives. But for this project, jQuery just makes sense. If you dislike jQuery, that’s totally fine! We still welcome your contributions, and who knows—maybe one day we’ll revisit things. Until then, we embrace our jQuery world with confidence and cuteness. 🎀💖
+- 🌟 **Simplicity & Familiarity** – jQuery is lightweight, easy to use, and gets the job done with elegance.  
+- 🌟 **Speed of Development** – We focus on **functionality first** without unnecessary complexity.  
+- 🌟 **Compatibility** – It integrates smoothly with Dark Connect without adding unnecessary dependencies.  
+- 🌟 **Pure Efficiency** – Our tool doesn’t need a full-blown reactive framework when jQuery can handle the job gracefully.  
+
+We deeply understand the modern ecosystem, and trust us, we’ve explored the alternatives. But for this project, **jQuery just makes sense.** If you dislike jQuery, that’s totally fine! We still welcome your contributions, and who knows—**maybe one day we’ll revisit things.**  
+
+Until then, we embrace our jQuery world with **confidence and cuteness.** 🎀💖  
 
 ---
 

@@ -69,7 +69,7 @@ Dark Connect Stats Helper is more than a stats tool—it’s an **experience**. 
 Created with love by:  
 💖 **Elaina & Sofia** 🎀✨  
 
-[💜 Our Website](https://www.cutesofties.com) | [🐱 GitHub Discussions](https://github.com/YOUR_REPO/discussions)  
+[💜 Our Website](https://www.cutesofties.com) | [🐱 GitHub Discussions](https://github.com/warmwhisky/dartconnect-stats-helper/discussions)  
 
 ---
 

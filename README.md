@@ -1,4 +1,4 @@
-# 🎯 Dark Connect Stats Helper ✨
+# 🎯 Dart Connect Stats Helper ✨
 
 **An elegant and powerful Chrome extension for dart players, crafted with love by Elaina & Sofia.**  
 Because darts deserve precision, and we deserve beauty. 🎀  
@@ -6,7 +6,7 @@ Because darts deserve precision, and we deserve beauty. 🎀
 ---
 
 ## 🌟 About
-Dark Connect Stats Helper is a feature-rich Chrome extension designed to enhance the experience of tracking dart game statistics. Whether you're a casual player or a competitive pro, our tool provides real-time insights and beautifully structured data to help you refine your game.  
+Dart Connect Stats Helper is a feature-rich Chrome extension designed to enhance the experience of tracking dart game statistics. Whether you're a casual player or a competitive pro, our tool provides real-time insights and beautifully structured data to help you refine your game.  
 
 We built this extension with a focus on **usability, accuracy, and a touch of charm**—because numbers should look as good as they feel.  
 
@@ -23,7 +23,7 @@ We built this extension with a focus on **usability, accuracy, and a touch of ch
 
 ## 🎀 Features
 ✔️ **Real-time statistics tracking** – Beautifully displayed for maximum clarity.  
-✔️ **Seamless integration** – Works directly with Dark Connect.  
+✔️ **Seamless integration** – Works directly with Dart Connect.  
 ✔️ **Lightweight & fast** – No performance drops, just pure functionality.  
 ✔️ **Soft, elegant interface** – Because stats should be pleasing to the eye.  
 
@@ -57,7 +57,7 @@ Yes, we do, and we do so **deliberately and unapologetically.** 😘 While the w
 
 - 🌟 **Simplicity & Familiarity** – jQuery is lightweight, easy to use, and gets the job done with elegance.  
 - 🌟 **Speed of Development** – We focus on **functionality first** without unnecessary complexity.  
-- 🌟 **Compatibility** – It integrates smoothly with Dark Connect without adding unnecessary dependencies.  
+- 🌟 **Compatibility** – It integrates smoothly with Dart Connect without adding unnecessary dependencies.  
 - 🌟 **Pure Efficiency** – Our tool doesn’t need a full-blown reactive framework when jQuery can handle the job gracefully.  
 
 We deeply understand the modern ecosystem, and trust us, we’ve explored the alternatives. But for this project, **jQuery just makes sense.** If you dislike jQuery, that’s totally fine! We still welcome your contributions, and who knows—**maybe one day we’ll revisit things.**  
@@ -67,7 +67,7 @@ Until then, we embrace our jQuery world with **confidence and cuteness.** 🎀�
 ---
 
 ## ✨ Our Vision
-Dark Connect Stats Helper is more than a stats tool—it’s an **experience**. Built with precision, care, and a sprinkle of charm, it reflects our passion for **functional elegance**. We hope you enjoy using it as much as we enjoyed creating it.  
+Dart Connect Stats Helper is more than a stats tool—it’s an **experience**. Built with precision, care, and a sprinkle of charm, it reflects our passion for **functional elegance**. We hope you enjoy using it as much as we enjoyed creating it.  
 
 Created with love by:  
 💖 **Elaina & Sofia** 🎀✨  

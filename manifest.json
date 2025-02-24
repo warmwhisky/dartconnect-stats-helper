@@ -14,9 +14,13 @@
       "default_popup": "dist/popup.html"
     },
     "permissions": [
-      "activeTab",
-      "storage"
+      "activeTab"
     ],
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "dartconnect@cute-softies.com"
+      }
+    },
     "host_permissions": ["https://tv.dartconnect.com/event*"],
     "content_scripts": [
       {

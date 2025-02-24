@@ -3,8 +3,10 @@ console.log("✅ DartConnect Stats Helper script loaded!");
     $(document).ready(function () {
 
         function updateStats() {
+
             let players = $(".text-red-800").map(function () {
-                let player_name = $(this).closest(`.justify-between`).find(`.truncate`).text().trim();
+                let player_name_span = $(this).closest(`.justify-between`).find(`.truncate`);
+                let player_name = $(player_name_span).text().trim();
                 let player_flag = $(this).closest(`.justify-between`).find(`img`).attr("src") || "";
 
                 // Remove the "B[number]" prefix
@@ -12,6 +14,9 @@ console.log("✅ DartConnect Stats Helper script loaded!");
 
                 // Swap first and last names
                 player_name = player_name.replace(/^(.+), (.+)$/, '$2 $1');
+
+                // Add player name to this attr data-player-name
+                player_name_span.attr('data-player-name', player_name);
 
                 let num = parseFloat($(this).text());
 
@@ -74,7 +79,7 @@ console.log("✅ DartConnect Stats Helper script loaded!");
             $("#flag-counts").html(flagStatsHTML);
 
             let playerList = players.map((p, index) => `  
-                <div class="flex justify-between items-center border-b border-pink-300 pb-1 player_average_row" data-flag="${p.player_flag}">  
+                <div class="flex justify-between items-center py-1 player_average_row player_name_select hover:bg-pink-100 cursor-pointer border border-pink-50 px-2" data-flag="${p.player_flag}" data-player-name="${p.player_name}">  
                     <div class="flex items-center space-x-2">  
                         <div class="font-semibold w-4">${index + 1}</div>
                          ${p.playing_live ? '🎯 ' : '<div class="w-[9px]"></div>'}
@@ -88,6 +93,10 @@ console.log("✅ DartConnect Stats Helper script loaded!");
 
             // get the tournament title
             $('#tournament_title').text($('h1.text-xl').text())
+
+            // remove selected classes and un-hide any game rows
+            $(`div[tournament-id]`).removeClass('hidden');
+            $('span[data-player-name]').removeClass('bg-pink-200 border px-2 !border-pink-500 rounded');
         }
 
 
@@ -95,8 +104,8 @@ console.log("✅ DartConnect Stats Helper script loaded!");
         $("body").append(`
             <button id="toggle-display" 
                 class="fixed bottom-5 right-5 !bg-pink-500 !text-white px-4 py-2 rounded-full shadow-lg 
-                hover:bg-pink-600 transition-all">
-                Show Stats
+                hover:bg-pink-600 transition-all z-50">
+                Show Stats 🎯
             </button>
         
             <div id="floating-panel" 
@@ -123,9 +132,18 @@ console.log("✅ DartConnect Stats Helper script loaded!");
         
                 <!-- Flag Stats Section (New!) -->
                 <div id="flag-stats" class="mt-2 text-xs pb-2 border-b border-pink-300">
-                    <strong class="text-pink-600">🏳️ Country Count:</strong>
+                    <strong class="text-pink-600">🏳️ Averages by Country:</strong>
                     <div id="flag-counts" class="mt-1 flex flex-wrap gap-2 overflow-y-auto max-h-40"></div>
                 </div>
+                
+                <input id="filter-player-averages" class="
+                    border border-pink-400 focus:border-pink-500 focus:ring-pink-400
+                    rounded-full shadow-lg px-4 py-2
+                    bg-white text-pink-600 placeholder-pink-400 font-semibold
+                    transition-all duration-300 ease-in-out
+                    focus:outline-none focus:ring-4
+                    hover:bg-pink-50
+                " type="text" placeholder="✨ Filter Players ✨"/>
         
                 <!-- Scrollable Player List -->
                 <div id="number-display-content" class="flex-1 overflow-y-auto text-xs mt-2"></div>
@@ -172,15 +190,68 @@ console.log("✅ DartConnect Stats Helper script loaded!");
                 $('.flag_count').removeClass('flag_filtered bg-pink-500/30');
                 $(this).addClass('flag_filtered bg-pink-500/30');
             }
-
         });
+
+        // Filter out players
+        $(document).on('click', '.player_name_select', function () {
+
+            // Get the player name
+            let player_name = $(this).closest('.player_name_select').attr('data-player-name');
+
+            // Mark player games as selected, so we can unselect if clicked again
+            if($(this).hasClass('player_name_selected')) {
+                showHideGameRow(false, player_name)
+                // remove player classes
+                $(this).removeClass('player_name_selected bg-pink-200 !border-pink-500 rounded');
+                $(`span[data-player-name="${player_name}"]`).removeClass('bg-pink-200 border px-2 !border-pink-500 rounded');
+
+            } else {
+
+                showHideGameRow(true, player_name)
+                // remove all classes
+                $('.player_name_select').removeClass('player_name_selected bg-pink-200 !border-pink-500 rounded');
+                $('span[data-player-name]').removeClass('bg-pink-200 border px-2 !border-pink-500 rounded');
+
+                // add player classes
+                $(this).addClass('player_name_selected bg-pink-200 !border-pink-500 rounded');
+                $(`span[data-player-name="${player_name}"]`).addClass('bg-pink-200 border px-2 !border-pink-500 rounded');
+            }
+
+            function showHideGameRow(show_player, player_name) {
+                // find all game surrounding divs
+                $(`div[tournament-id]`).each(function () {
+                    if(show_player && $(this).find(`span[data-player-name="${player_name}"]`).length > 0) {
+                        $(this).removeClass('hidden');
+                    } else if (show_player) {
+                        $(this).addClass('hidden')
+                    } else {
+                        $(this).removeClass('hidden');
+                    }
+                })
+            }
+        });
+
+        // Filter players on type
+        $('#filter-player-averages').on('input', function () {
+            let query = $(this).val().toLowerCase(); // Convert input to lowercase for case-insensitive matching
+            $('.player_name_select').each(function () {
+                let playerRow = $(this);
+                let playerName = playerRow.attr('data-player-name')?.toLowerCase() || ""; // Ensure it's a string
+
+                if (playerName.includes(query)) {
+                    playerRow.removeClass('hidden');
+                } else {
+                    playerRow.addClass('hidden');
+                }
+            });
+        });
+
 
         // Run updateStats initially
         updateStats();
 
         document.addEventListener("inertia:finish", () => {
             // console.log("🔄 Inertia page changed! Checking if we should inject the panel...");
-
             $("#floating-panel").addClass("hidden");
             if (location.href.includes("/event/")) {
                 // console.log("🎯 We're on an event page! Showing button...");
@@ -192,4 +263,30 @@ console.log("✅ DartConnect Stats Helper script loaded!");
         });
 
     });
+    (function() {
+        const style = document.createElement("style");
+        style.innerHTML = `
+/* Target only our floating panel */
+#floating-panel ::-webkit-scrollbar {
+    width: 10px;
+}
+
+#floating-panel ::-webkit-scrollbar-track {
+    background: #ffe4e6;
+    border-radius: 10px;
+}
+
+#floating-panel ::-webkit-scrollbar-thumb {
+    background: #f472b6;
+    border-radius: 10px;
+    border: 2px solid #ffe4e6;
+}
+
+#floating-panel ::-webkit-scrollbar-thumb:hover {
+    background: #ec4899;
+}
+
+    `;
+        document.head.appendChild(style);
+    })();
 })();

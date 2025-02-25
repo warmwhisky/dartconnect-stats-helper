@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@source './dist/*.css';
+.cunt {
+    @apply bg-red-300;
+}

@@ -109,7 +109,7 @@ console.log("✅ DartConnect Stats Helper script loaded!");
             </button>
         
             <div id="floating-panel" 
-                class="fixed right-0 bg-white shadow-xl border border-pink-300 p-4 rounded-l-2xl w-96 
+                class="fixed right-0 bg-white shadow-xl border border-pink-300 p-4 rounded-l-2xl w-96
                 hidden transform translate-y-10 opacity-0 transition-all duration-500 ease-in-out text-gray-800 
                 shadow-soft-glow bg-gradient-to-br from-white to-pink-100 
                 max-h-screen flex flex-col z-50">
@@ -137,7 +137,7 @@ console.log("✅ DartConnect Stats Helper script loaded!");
                 </div>
                 
                 <input id="filter-player-averages" class="
-                    border border-pink-400 focus:border-pink-500 focus:ring-pink-400
+                    border !border-pink-400 focus:border-pink-500 focus:ring-pink-400
                     rounded-full shadow-lg px-4 py-2
                     bg-white text-pink-600 placeholder-pink-400 font-semibold
                     transition-all duration-300 ease-in-out

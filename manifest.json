@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "DartConnect Stats Helper",
-    "version": "1.0",
+    "version": "1.1.0",
     "description": "Automatically displays highest and lowest player averages on DartConnect.",
     "icons": {
       "16": "dist/icon-16x16.png",

@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "DartConnect Stats Helper",
-    "version": "1.1.0",
+    "version": "1.1.2",
     "description": "Automatically displays highest and lowest player averages on DartConnect.",
     "icons": {
       "16": "dist/icon-16x16.png",
@@ -21,10 +21,10 @@
         "id": "dartconnect@cute-softies.com"
       }
     },
-    "host_permissions": ["https://tv.dartconnect.com/event*"],
+    "host_permissions": ["https://tv.dartconnect.com/*"],
     "content_scripts": [
       {
-        "matches": ["https://tv.dartconnect.com/event*"],
+        "matches": ["https://tv.dartconnect.com/*"],
         "css": ["dist/tailwind.css"],
         "js": ["src/jquery-3.7.1.min.js", "dist/script.js"]
       }
